@@ -48,18 +48,18 @@ if (isset($_SESSION['steamid'])) {
 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 		crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="style.css">
-	<title>CS2 Simple Weapon Paints</title>
+	<title>CS2 武器皮肤修改</title>
 </head>
 
 <body>
 
 	<?php
 	if (!isset($_SESSION['steamid'])) {
-		echo "<div class='bg-primary'><h2>To choose weapon paints loadout, you need to ";
+		echo "<div class='bg-primary'><h2>要选择武器皮肤进行修改，您需要登录";
 		loginbutton("rectangle");
 		echo "</h2></div>";
 	} else {
-		echo "<div class='bg-primary'>Your current weapon skin loadout<form action='' method='get'><button class='btn btn-secondary' name='logout' type='submit'>Logout</button></form></div>";
+		echo "<div class='bg-primary'>您当前的武器皮肤装载情况<form action='' method='get'><button class='btn btn-secondary' name='logout' type='submit'>Logout</button></form></div>";
 		echo "<div class='card-group mt-2'>";
 		?>
 
@@ -85,7 +85,7 @@ if (isset($_SESSION['steamid'])) {
 				<div class="card-footer">
 					<form action="" method="POST">
 						<select name="forma" class="form-control select" onchange="this.form.submit()" class="SelectWeapon">
-							<option>Select knife</option>
+							<option>选择刀</option>
 							<?php
 							foreach ($knifes as $knifeKey => $knife) {
 								if ($selectedKnife['knife'] == $knife['weapon_name'])
@@ -122,7 +122,7 @@ if (isset($_SESSION['steamid'])) {
 					<div class="card-footer">
 						<form action="" method="POST">
 							<select name="forma" class="form-control select" onchange="this.form.submit()" class="SelectWeapon">
-								<option>Select skin</option>
+								<option>选择皮肤</option>
 								<?php
 								foreach ($skins[$defindex] as $paintKey => $paint) {
 									if (array_key_exists($defindex, $selectedSkins) && $selectedSkins[$defindex] == $paintKey)
